@@ -13,4 +13,16 @@ public class HomeController {
         model.addAttribute("name", name);
         return "home";
     }
+
+    @RequestMapping(value ={"/employee/home"})
+    public String employeeHome(Model model, @RequestParam(value="name", required=false, defaultValue="World") String name) {
+        model.addAttribute("name", name);
+        return "employee_home";
+    }
+
+    @RequestMapping(value ={"/guest/home"})
+    public String guestHome(Model model, @RequestParam(value="name", required=false, defaultValue="World") String name) {
+        model.addAttribute("name", name);
+        return "guest_home";
+    }
 }
