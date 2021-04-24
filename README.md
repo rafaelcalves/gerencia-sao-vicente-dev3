@@ -1,20 +1,13 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Environment Setup
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+1) Import the project on your IDE
+2) Through maven, run clean and install commands. It can be done via maven IDE tool or command line:
+    1) **[suggested]** On IntelliJ, on the top right of window, there is a tab with database and maven tools (if the project was imported correctly). Click maven, and it will open a bunch of maven options including clean and install.
+    2) On the project root, run `mvnw clean install`
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+> Obs.: clean command will delete target directory if it exists and install will download maven dependencies, build the project and recreate target directory with built files and static resources. **Remember to rerun it whenever you change FE or BE code.**
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+3) Run the application:
+   1) **[suggested]** Go to the application class and click play. It will create a run configuration on you IDE.
+   2) On the project root, run `mvnw spring-boot:run` (to debug it, you'll need to create a run configuration on your IDE and attach it to your application)
+4) Access `http://localhost:8080/home` on your browser (please, do not use IE)
