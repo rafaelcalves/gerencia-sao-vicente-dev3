@@ -7,7 +7,7 @@
 
 <t:template>
     <jsp:attribute name="header">
-        <link rel="stylesheet" href="/resources/css/form.css">
+        <link rel="stylesheet" href="/resources/css/login.css">
     </jsp:attribute>
 
     <jsp:attribute name="title">
@@ -26,14 +26,23 @@
             </div>
         </c:if>
 
-        <form method="POST" action="perform_login" class="form-signin" modelAttribute="user">
-            <div class="">
-                <input name="username" type="text" placeholder="Email"
-                       autofocus="true"/>
-                <input name="password" type="password" placeholder="Password"/>
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <form method="POST" action="perform_login" class="form" modelAttribute="user">
+            <div class="form-login">
+                <p class="form-title">Área de acesso interno! <br/>
+                   Insira seus dados para acessar sua conta</p>
+                <input name="username" type="text" placeholder="E-mail"
+                       autofocus="true" class="input-form-login" />
+                <input name="password" type="password" placeholder="Senha" class="input-form-login" />
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                 <br>
-                <button type="submit">Log In</button>
+                <button type="submit" class="btn-signin">Entrar</button>
+
+                <a href="/login" class="forgot-password">Esqueci minha senha</a>
+                <div class="box-footer-login">
+                    <a href="/login" class="box-footer-login-item">Termos</a>
+                    <a href="/login" class="box-footer-login-item">Privacidade</a>
+                    <a href="/login" class="box-footer-login-item">Segurança</a>
+                </div>
             </div>
         </form>
     </jsp:body>

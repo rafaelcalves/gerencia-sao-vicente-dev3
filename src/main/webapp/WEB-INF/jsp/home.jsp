@@ -7,14 +7,14 @@
 
 <t:template>
     <jsp:attribute name="header">
-    test
+
     </jsp:attribute>
 
     <jsp:attribute name="title">
-        Login
+        Home
     </jsp:attribute>
 
     <jsp:body>
-        <h2 class="hello-title">Hello ${name}!</h2>
+
     </jsp:body>
 </t:template>

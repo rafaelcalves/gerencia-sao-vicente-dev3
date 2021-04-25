@@ -34,20 +34,41 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand navLogo" href="/"><img src="/resources/img/logo.png" alt="Responsive">
+            <a class="navLogo" href="/"><img src="/resources/img/logo.png" alt="Responsive">
             </a>
         </div>
 
-        <div id="navbar" class="collapse navbar-collapse">
+        <div id="navbar" class="collapse navbar-collapse"
+            style="display: flex !important;height: 100% !important;align-items: center;justify-content: flex-end;">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/establishment/">Establishments</a></li>
-                <li><a href="/poll/">Polls</a></li>
                 <c:if test="${not empty userName}">
-                    <li><a href="/logout">Logout</a></li>
-                    <li><a class="disabled">${userName}</a></li>
+                    <li><a href="/">Página inicial</a></li>
+                    <li><a href="/">Relatórios</a></li>
+                    <li><a href="/">Tarefas</a></li>
+                    <li><a href="/">Meu perfil</a></li>
+
+                    <li><a class="disabled"
+                        style="color: #8C0052 !important;font-size: 16px !important; font-weight: 700">
+                            Olá, Enzo
+                        </a>
+                    </li>
+                    <li><a class="disabled"
+                        style="color: #8C0052 !important;font-size: 16px !important;text-transform: uppercase; font-weight: 700">
+                            Id: 123456789
+                        </a>
+                    </li>
+
+                    <li>
+                    <a href="/logout"
+                        style="height: 40px; width: 120px; background-color: #8C0052; border-radius: 6px; border: 1px solid #8C0052; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: #ffffff !important; font-size: 16px; margin-left: 20px;">
+                      Sair
+                    </a>
+                    </li>
                 </c:if>
                 <c:if test="${empty userName}">
-                    <li><a href="/user/add">Sign Up</a></li>
+                    <li><a href="/login">Sobre o Lar</a></li>
+                    <li><a href="/login">Eventos</a></li>
+                    <li><a href="/login">Entre em Contato</a></li>
                 </c:if>
             </ul>
         </div><!-- /.nav-collapse -->
@@ -55,7 +76,7 @@
 </nav><!-- /.navbar -->
 <div id="body">
     <div id="main-container" class="container">
-        <jsp:doBody/>
+        <jsp:doBody />
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
