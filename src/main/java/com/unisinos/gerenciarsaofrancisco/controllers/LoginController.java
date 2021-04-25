@@ -8,13 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
     @RequestMapping(value = {"/login"})
-    public String login(Model model, @RequestParam(value="status", required=false) String error) {
-        model.addAttribute("status",error);
+    public String login(Model model, @RequestParam(value="error", required=false) boolean error) {
+        model.addAttribute("error",error);
         return "login";
     }
     @RequestMapping(value = {"/logout"})
-    public String logout(Model model, @RequestParam(value="status", required=false) String error) {
-        model.addAttribute("status",error);
+    public String logout(Model model) {
         return "redirect:home";
     }
 }

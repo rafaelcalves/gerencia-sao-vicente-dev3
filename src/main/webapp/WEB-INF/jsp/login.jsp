@@ -26,9 +26,9 @@
             </div>
         </c:if>
 
-        <form method="POST" action="/login" class="form-signin" modelAttribute="user">
+        <form method="POST" action="perform_login" class="form-signin" modelAttribute="user">
             <div class="">
-                <input name="email" type="text" placeholder="Email"
+                <input name="username" type="text" placeholder="Email"
                        autofocus="true"/>
                 <input name="password" type="password" placeholder="Password"/>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
