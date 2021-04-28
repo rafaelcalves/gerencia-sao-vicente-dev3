@@ -1,42 +1,16 @@
-package com.unisinos.gerenciarsaofrancisco.models;
+package com.unisinos.gerenciarsaofrancisco.datas;
 
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@DynamicUpdate
-@DynamicInsert
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+public class UserData {
     private int id;
-
-    @Column(name = "first_name")
-    @NotBlank
     private String firstName;
-
-    @Column(name = "last_name")
-    @NotBlank
     private String lastName;
-
-    @Column(name = "email")
-    @Email
     private String email;
-
-    @Column(name = "password")
-    @NotBlank
     private String password;
-
-    @Column(name = "role")
-    private String role;
-
-    @Column(name = "dob")
+    private String confirmPassword;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime dob;
 
@@ -80,12 +54,12 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     public LocalDateTime getDob() {

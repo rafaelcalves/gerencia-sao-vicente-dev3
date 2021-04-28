@@ -1,4 +1,4 @@
-package com.unisinos.gerenciarsaofrancisco.service;
+package com.unisinos.gerenciarsaofrancisco.seucrity;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

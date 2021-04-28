@@ -3,9 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- SECURITY CONFIGURATION BEANS -->
     <bean id="authenticationSuccessHandler" class="com.unisinos.gerenciarsaofrancisco.handlers.DefaultAuthenticationSuccessHandler"/>
     <bean id="redirectStrategy" class="org.springframework.security.web.DefaultRedirectStrategy"/>
     <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+    <!--SYSTEM BEANS -->
+    <bean id="userDao" class="com.unisinos.gerenciarsaofrancisco.daos.impls.DefaultUserDao"/>
+    <bean id="userService" class="com.unisinos.gerenciarsaofrancisco.service.impls.DefaultUserService"/>
 
 </beans>
 
