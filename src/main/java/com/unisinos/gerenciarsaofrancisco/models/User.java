@@ -1,19 +1,15 @@
 package com.unisinos.gerenciarsaofrancisco.models;
 
-import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
 @DynamicUpdate
-@DynamicInsert
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,7 +24,7 @@ public class User {
     @NotEmpty
     private String lastName;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     @Email
     @NotEmpty
     private String email;
