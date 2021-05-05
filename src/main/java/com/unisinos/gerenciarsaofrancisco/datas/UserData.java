@@ -1,18 +1,10 @@
 package com.unisinos.gerenciarsaofrancisco.datas;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.time.LocalDateTime;
-
 public class UserData {
     private int id;
     private String firstName;
     private String lastName;
     private String email;
-    private String password;
-    private String confirmPassword;
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime dob;
 
     public int getId() {
         return id;
@@ -44,29 +36,5 @@ public class UserData {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-
-    public LocalDateTime getDob() {
-        return dob;
-    }
-
-    public void setDob(LocalDateTime dob) {
-        this.dob = dob;
     }
 }

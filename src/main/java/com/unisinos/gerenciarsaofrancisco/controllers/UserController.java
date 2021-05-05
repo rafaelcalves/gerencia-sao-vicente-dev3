@@ -1,22 +1,45 @@
 package com.unisinos.gerenciarsaofrancisco.controllers;
 
+import com.unisinos.gerenciarsaofrancisco.forms.UserForm;
+import com.unisinos.gerenciarsaofrancisco.models.User;
+import com.unisinos.gerenciarsaofrancisco.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
+
+import javax.annotation.Resource;
+import javax.validation.Valid;
 
 @Controller
-@RequestMapping(value = {"/user"})
+@RequestMapping(value = {"/register"})
 public class UserController {
-    @RequestMapping(value = {"/register"})
-    public String register(Model model, @RequestParam(value="error", required=false) boolean error) {
-        model.addAttribute("error",error);
-        return "register";
+    @Resource
+    private Validator userFormValidator;
+
+    @Resource
+    private UserService userService;
+
+    @RequestMapping(value = {"/",""})
+    public ModelAndView register(Model model) {
+        return new ModelAndView("register", "user", new UserForm());
     }
 
-    @RequestMapping(value = {"/register/create"})
-    public String create(Model model, @RequestParam(value="error", required=false) boolean error) {
-
+    @RequestMapping(method = RequestMethod.POST, value = {"/add"})
+    public String create(@ModelAttribute("user") UserForm userForm,
+                         BindingResult bindingResult, Model model, Errors errors){
+        userFormValidator.validate(userForm,bindingResult);
+        if(bindingResult.hasErrors()){
+            return "register";
+        }
+        userService.saveFromForm(userForm);
         return "login";
     }
 }

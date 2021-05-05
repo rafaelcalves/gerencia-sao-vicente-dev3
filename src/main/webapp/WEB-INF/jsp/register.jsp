@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
@@ -15,35 +16,25 @@
     </jsp:attribute>
 
     <jsp:body>
-        <c:if test="${param.error}">
-            <div>
-                Invalid username and password.
-            </div>
-        </c:if>
-        <c:if test="${param.logout}">
-            <div>
-                You have been logged out.
-            </div>
-        </c:if>
-
-        <form method="POST" action="perform_login" class="form" modelAttribute="user">
+        <form:form method="POST" action="/register/add" modelAttribute="user" class="form">
             <div class="form-login">
-                <p class="form-title">Área de acesso interno! <br/>
-                    Insira seus dados para acessar sua conta</p>
-                <input name="username" type="text" placeholder="E-mail"
-                       autofocus="true" class="input-form-login" />
-                <input name="password" type="password" placeholder="Senha" class="input-form-login" />
+                <p class="form-title">Criar conta <br/></p>
+                <form:hidden path="id"/>
+                <form:input name="firstName" type="text" placeholder="Nome" autofocus="true" class="input-form-login"  path="firstName"/>
+                <form:errors path="firstName" cssClass="error" />
+                <form:input name="lastName" type="text" placeholder="Sobrenome" autofocus="true" class="input-form-login"  path="lastName"/>
+                <form:errors path="lastName" cssClass="error" />
+                <form:input name="email" type="text" placeholder="E-mail" autofocus="true" class="input-form-login"  path="email"/>
+                <form:errors path="email" cssClass="error" />
+                <form:input name="password" type="password" placeholder="Senha" class="input-form-login"  path="password"/>
+                <form:input name="confirmPassword" type="password" placeholder="Confirmar Senha" class="input-form-login"  path="confirmPassword"/>
+                <form:errors path="confirmPassword" cssClass="error" />
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                 <br>
-                <button type="submit" class="btn-signin">Entrar</button>
-
-                <a href="/login" class="forgot-password">Esqueci minha senha</a>
+                <form:button class="btn-signin">Confirmar</form:button>
                 <div class="box-footer-login">
-                    <a href="/login" class="box-footer-login-item">Termos</a>
-                    <a href="/login" class="box-footer-login-item">Privacidade</a>
-                    <a href="/login" class="box-footer-login-item">Segurança</a>
                 </div>
             </div>
-        </form>
+        </form:form>
     </jsp:body>
 </t:template>

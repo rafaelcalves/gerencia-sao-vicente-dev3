@@ -2,11 +2,13 @@ package com.unisinos.gerenciarsaofrancisco.daos.impls;
 
 import com.unisinos.gerenciarsaofrancisco.daos.UserDao;
 import com.unisinos.gerenciarsaofrancisco.models.User;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+@Component
 public class DefaultUserDao implements UserDao {
     @PersistenceContext
     private EntityManager entityManager;
