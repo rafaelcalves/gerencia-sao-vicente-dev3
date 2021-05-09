@@ -14,6 +14,6 @@ public class LoginController {
     }
     @RequestMapping(value = {"/logout"})
     public String logout(Model model) {
-        return "redirect:home";
+        return "redirect:/home";
     }
 }

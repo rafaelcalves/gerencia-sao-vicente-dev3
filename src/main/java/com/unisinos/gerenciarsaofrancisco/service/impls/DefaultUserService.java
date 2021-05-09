@@ -3,7 +3,6 @@ package com.unisinos.gerenciarsaofrancisco.service.impls;
 import com.unisinos.gerenciarsaofrancisco.daos.UserDao;
 import com.unisinos.gerenciarsaofrancisco.forms.UserForm;
 import com.unisinos.gerenciarsaofrancisco.models.User;
-import com.unisinos.gerenciarsaofrancisco.populators.Populator;
 import com.unisinos.gerenciarsaofrancisco.populators.impls.UserFormPopulator;
 import com.unisinos.gerenciarsaofrancisco.service.UserService;
 import org.springframework.stereotype.Component;
@@ -12,6 +11,7 @@ import javax.annotation.Resource;
 
 @Component
 public class DefaultUserService implements UserService {
+
     @Resource
     private UserDao userDao;
     @Resource
