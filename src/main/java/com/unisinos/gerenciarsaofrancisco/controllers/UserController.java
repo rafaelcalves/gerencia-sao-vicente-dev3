@@ -15,27 +15,22 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping(value = {"/register"})
-public class UserController {
+@RequestMapping(value = {"/"})
+public class UserController extends BaseController{
     @Resource
     private Validator userFormValidator;
 
     @Resource
     private UserService userService;
 
-    @RequestMapping(value = {"/",""})
-    public ModelAndView register(Model model) {
-        return new ModelAndView("register", "user", new UserForm());
-    }
-
-    @RequestMapping(method = RequestMethod.POST, value = {"/add"})
-    public String create(@ModelAttribute("user") UserForm userForm,
-                         BindingResult bindingResult, Model model, Errors errors){
+    @RequestMapping(method = RequestMethod.POST, value = {"/register"})
+    public ModelAndView create(@ModelAttribute("user") UserForm userForm,
+                               BindingResult bindingResult, Model model, Errors errors){
         userFormValidator.validate(userForm,bindingResult);
         if(bindingResult.hasErrors()){
-            return "register";
+            return getView(model,"home");
         }
         userService.saveFromForm(userForm);
-        return "redirect:/login";
+        return getView(model,"redirect:/login");
     }
 }

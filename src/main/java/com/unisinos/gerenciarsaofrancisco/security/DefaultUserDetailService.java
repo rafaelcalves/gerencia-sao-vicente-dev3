@@ -1,4 +1,4 @@
-package com.unisinos.gerenciarsaofrancisco.seucrity;
+package com.unisinos.gerenciarsaofrancisco.security;
 
 import com.unisinos.gerenciarsaofrancisco.models.User;
 import com.unisinos.gerenciarsaofrancisco.service.UserService;

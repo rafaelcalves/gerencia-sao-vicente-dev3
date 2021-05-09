@@ -1,4 +1,4 @@
-package com.unisinos.gerenciarsaofrancisco.seucrity;
+package com.unisinos.gerenciarsaofrancisco.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 
@@ -42,7 +44,9 @@ public class DefaultWebSecurityConfigurerAdapter extends WebSecurityConfigurerAd
                     .permitAll()
                     .and()
                 .logout()
-                    .logoutUrl("/logout")
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout", RequestMethod.GET.toString()))
+                    .logoutSuccessUrl("/home")
+                    .invalidateHttpSession(true)
                     .deleteCookies("JSESSIONID");
     }
 

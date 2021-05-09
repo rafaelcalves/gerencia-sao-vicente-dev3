@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 @Component
-public class UserFormPopulator implements Populator<UserForm, User> {
+public class UserPopulator implements Populator<UserForm, User> {
     public static final String DEFAULT_ROLE = "GUEST";
     @Resource
     private PasswordEncoder passwordEncoder;

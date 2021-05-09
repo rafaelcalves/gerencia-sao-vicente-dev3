@@ -35,7 +35,7 @@ public class UserFormValidator implements Validator {
 
     private void validateEmpty(Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "field.required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "field.required");
+//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "field.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "field.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "field.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "field.required");
