@@ -1,13 +1,5 @@
 # Maven
-- task: MysqlDeploymentOnMachineGroup@1
-  inputs:
-    TaskNameSelector: 'InlineSqlTask'
-    SqlInline: 'CREATE DATABASE IF NOT EXISTS `saovicente`;'
-    ServerName: 'localhost'
-    DatabaseName: 'saovicente'
-    SqlUsername: 'root'
-    SqlPassword: 'root'
-    
+
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -19,6 +11,14 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: MysqlDeploymentOnMachineGroup@1
+  inputs:
+    TaskNameSelector: 'InlineSqlTask'
+    SqlInline: 'CREATE DATABASE IF NOT EXISTS `saovicente`;'
+    ServerName: 'localhost'
+    DatabaseName: 'saovicente'
+    SqlUsername: 'root'
+    SqlPassword: 'root'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
