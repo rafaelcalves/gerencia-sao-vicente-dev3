@@ -14,8 +14,7 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenVersionOption: Path
-    mavenDirectory: 'mvnw.cmd'
+    mavenVersionOption: Default
     javaHomeOption: 'JDKVersion'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
