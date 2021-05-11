@@ -17,7 +17,6 @@ steps:
     mavenVersionOption: Path
     mavenDirectory: 'mvnw.cmd'
     javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: true
