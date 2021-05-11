@@ -7,7 +7,7 @@
 trigger:
 - main
 
-pool: sao-vicente
+pool: deploy
 
 steps:
 - task: MysqlDeploymentOnMachineGroup@1
