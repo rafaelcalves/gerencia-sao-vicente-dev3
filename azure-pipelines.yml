@@ -11,14 +11,6 @@ pool:
   name: sao-vicente
 
 steps:
-- task: MysqlDeploymentOnMachineGroup@1
-  inputs:
-    TaskNameSelector: 'InlineSqlTask'
-    SqlInline: 'CREATE DATABASE IF NOT EXISTS `saovicente`;'
-    ServerName: 'localhost'
-    DatabaseName: 'saovicente'
-    SqlUsername: 'root'
-    SqlPassword: 'root'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
