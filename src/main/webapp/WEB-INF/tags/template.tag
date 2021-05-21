@@ -41,7 +41,7 @@
         <div id="navbar" class="collapse navbar-collapse"
             style="display: flex !important;height: 100% !important;align-items: center;justify-content: flex-end;">
             <ul class="nav navbar-nav navbar-right">
-                <c:if test="${not empty userName}">
+                <c:if test="${not empty logged_user}">
                     <li><a href="/">Página inicial</a></li>
                     <li><a href="/">Relatórios</a></li>
                     <li><a href="/">Tarefas</a></li>
@@ -49,12 +49,7 @@
 
                     <li><a class="disabled"
                         style="color: #8C0052 !important;font-size: 16px !important; font-weight: 700">
-                            Olá, Enzo
-                        </a>
-                    </li>
-                    <li><a class="disabled"
-                        style="color: #8C0052 !important;font-size: 16px !important;text-transform: uppercase; font-weight: 700">
-                            Id: 123456789
+                            Olá, ${logged_user.firstName}
                         </a>
                     </li>
 
@@ -65,10 +60,16 @@
                     </a>
                     </li>
                 </c:if>
-                <c:if test="${empty userName}">
-                    <li><a href="/login">Sobre o Lar</a></li>
-                    <li><a href="/login">Eventos</a></li>
-                    <li><a href="/login">Entre em Contato</a></li>
+                <c:if test="${empty logged_user}">
+                    <li><a href="#">Sobre o Lar</a></li>
+                    <li><a href="#">Eventos</a></li>
+                    <li><a href="#">Entre em Contato</a></li>
+                    <li>
+                        <a href="/login"
+                           style="height: 40px; width: 120px; background-color: #8C0052; border-radius: 6px; border: 1px solid #8C0052; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: #ffffff !important; font-size: 16px; margin-left: 20px;">
+                            Entrar
+                        </a>
+                    </li>
                 </c:if>
             </ul>
         </div><!-- /.nav-collapse -->
