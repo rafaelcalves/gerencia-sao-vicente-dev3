@@ -31,8 +31,7 @@ public class DefaultUserDao implements UserDao {
     public User findByEmail(String email) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
-
-        List<User> result = entityManager.createQuery( "FROM User WHERE email = :email")
+        List<User> result = entityManager.createQuery( "FROM  WHERE email = :email")
                 .setParameter("email", email)
                 .getResultList();
 
