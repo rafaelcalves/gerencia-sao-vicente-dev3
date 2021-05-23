@@ -31,7 +31,7 @@ public class DefaultWebSecurityConfigurerAdapter extends WebSecurityConfigurerAd
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/home", "/register/**").permitAll()
+                    .antMatchers("/", "/home", "/register/**", "/payment/**").permitAll()
                     .antMatchers("/employee/**").hasRole("EMPLOYEE")
                     .antMatchers("/guest/**").hasRole("GUEST")
                     .anyRequest().authenticated()
