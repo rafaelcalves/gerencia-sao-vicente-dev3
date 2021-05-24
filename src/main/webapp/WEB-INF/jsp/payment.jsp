@@ -15,13 +15,16 @@
     </jsp:attribute>
 
     <jsp:body>
-        <div class="form-payment">
-            <p class="form-title">Realize uma doação! <br/>
-                Qual o formato desejado?</p>
-            <input type="button" value="Pix" onclick="document.location.href='payment/pix'">
-            <input type="button" value="Cartão de crédito" onclick="document.location.href='payment/card'">
-            <div class="box-footer-payment">
-                <a href="/payment" class="box-footer-login-item">Informações adicionais</a>
+        <div class="form">
+            <div class="form-payment">
+                <p class="form-title">Realize uma doação! <br/>
+                   Qual a forma de pagamento?</p>
+                <input type="button" class="btn-pix" value="Pix" onclick="document.location.href='payment/pix'">
+
+                <input type="button" class="btn-card" value="Cartão de crédito" onclick="document.location.href='payment/card'">
+                <div class="box-footer-payment">
+                    <a href="/payment" class="box-footer-login-item">Informações adicionais</a>
+                </div>
             </div>
         </div>
     </jsp:body>
