@@ -35,7 +35,8 @@ public class DefaultErrorController extends BaseController implements ErrorContr
                 break;
             }
             case 405: {
-
+                errorMsg = "Http Error Code: 405. Method Not Allowed";
+                break;
             }
             case 500: {
                 errorMsg = "Http Error Code: 500. Internal Server Error";

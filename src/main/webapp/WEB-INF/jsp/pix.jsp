@@ -15,22 +15,6 @@
     </jsp:attribute>
 
     <jsp:body>
-        <div class="form-login">
-            <p class="form-title">Área de acesso interno! <br/>
-                Insira seus dados para acessar sua conta</p>
-            <input name="username" type="text" placeholder="E-mail"
-                   autofocus="true" class="input-form-login" />
-            <input name="password" type="password" placeholder="Senha" class="input-form-login" />
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-            <br>
-            <button type="submit" class="btn-signin">Entrar</button>
-
-            <a href="/login" class="forgot-password">Esqueci minha senha</a>
-            <div class="box-footer-login">
-                <a href="/login" class="box-footer-login-item">Termos</a>
-                <a href="/login" class="box-footer-login-item">Privacidade</a>
-                <a href="/login" class="box-footer-login-item">Segurança</a>
-            </div>
-        </div>
+        Página do PIX
     </jsp:body>
 </t:template>

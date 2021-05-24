@@ -7,29 +7,21 @@
 
 <t:template>
     <jsp:attribute name="header">
-    test
+        <link rel="stylesheet" href="/resources/css/payment.css">
     </jsp:attribute>
 
     <jsp:attribute name="title">
-        Pagamento
+        Payment
     </jsp:attribute>
 
     <jsp:body>
-        <div class="form-login">
-            <p class="form-title">Área de acesso interno! <br/>
-                Insira seus dados para acessar sua conta</p>
-            <input name="username" type="text" placeholder="E-mail"
-                   autofocus="true" class="input-form-login" />
-            <input name="password" type="password" placeholder="Senha" class="input-form-login" />
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-            <br>
-            <button type="submit" class="btn-signin">Entrar</button>
-
-            <a href="/login" class="forgot-password">Esqueci minha senha</a>
-            <div class="box-footer-login">
-                <a href="/login" class="box-footer-login-item">Termos</a>
-                <a href="/login" class="box-footer-login-item">Privacidade</a>
-                <a href="/login" class="box-footer-login-item">Segurança</a>
+        <div class="form-payment">
+            <p class="form-title">Realize uma doação! <br/>
+                Qual o formato desejado?</p>
+            <input type="button" value="Pix" onclick="document.location.href='payment/pix'">
+            <input type="button" value="Cartão de crédito" onclick="document.location.href='payment/card'">
+            <div class="box-footer-payment">
+                <a href="/payment" class="box-footer-login-item">Informações adicionais</a>
             </div>
         </div>
     </jsp:body>
