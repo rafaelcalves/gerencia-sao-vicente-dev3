@@ -30,24 +30,24 @@ public class DefaultWebSecurityConfigurerAdapter extends WebSecurityConfigurerAd
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                    .antMatchers("/", "/home", "/register/**", "/payment/**").permitAll()
-                    .antMatchers("/employee/**").hasRole("EMPLOYEE")
-                    .antMatchers("/guest/**").hasRole("GUEST")
-                    .anyRequest().authenticated()
-                    .and()
-                .formLogin()
-                    .loginPage("/login")
-                    .loginProcessingUrl("/perform_login")
-                    .successHandler(authenticationSuccessHandler)
-                    .failureUrl("/login?error=true")
-                    .permitAll()
-                    .and()
-                .logout()
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout", RequestMethod.GET.toString()))
-                    .logoutSuccessUrl("/home")
-                    .invalidateHttpSession(true)
-                    .deleteCookies("JSESSIONID");
+            .authorizeRequests()
+                .antMatchers("/", "/home", "/register/**", "/payment/**").permitAll()
+                .antMatchers("/employee/**").hasRole("EMPLOYEE")
+                .antMatchers("/guest/**").hasRole("GUEST")
+                .anyRequest().authenticated()
+                .and()
+            .formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/perform_login")
+                .successHandler(authenticationSuccessHandler)
+                .failureUrl("/login?error=true")
+                .permitAll()
+                .and()
+            .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout", RequestMethod.GET.toString()))
+                .logoutSuccessUrl("/home")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID");
     }
 
     @Override
