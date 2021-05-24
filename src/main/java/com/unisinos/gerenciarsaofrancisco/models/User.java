@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+//Changed as heroku DB has a table named "user" as default
 @Entity(name = "app_user")
 @DynamicUpdate
 public class User {
