@@ -15,7 +15,7 @@ port=5432
 username=root
 password=root
 database=saovicente
-port=3306/saovicente
+port=3306
 ```
 To configure your local DB on the application, comment the block named `Server PostgreSQL` which is used to deploy the application on Heroku. And comment the block of code related to the DB of your choose.
 > Obs.: If you have any issue with hibernate when running your application, take a look if it's not related to a missing database named saovicente. The url should create it if don't exists but it may not work properly.
