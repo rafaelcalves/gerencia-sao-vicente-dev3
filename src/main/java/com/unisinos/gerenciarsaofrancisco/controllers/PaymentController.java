@@ -16,4 +16,9 @@ public class PaymentController extends BaseController{
     public ModelAndView pix(Model model) {
         return getView(model, "pix");
     }
+
+    @RequestMapping(value ={"/payment/credit"})
+    public ModelAndView creditCard(Model model) {
+        return getView(model, "credit");
+    }
 }
