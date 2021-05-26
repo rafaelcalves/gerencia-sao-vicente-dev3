@@ -8,10 +8,11 @@
 <t:template>
     <jsp:attribute name="header">
         <link rel="stylesheet" href="/resources/css/payment.css">
+        <script src="<c:url value="/resources/js/pix.js" />"></script>
     </jsp:attribute>
 
     <jsp:attribute name="title">
-        Payment
+        Pix
     </jsp:attribute>
 
     <jsp:body>
@@ -28,27 +29,5 @@
                 </div>
             </div>
         </div>
-
-        <SCRIPT LANGUAGE="JavaScript">
-            <!--
-            function myFunctionCNPJ() {
-                var copyText = document.getElementById("CNPJ");
-                copyText.select();
-                copyText.setSelectionRange(0, 99999); /* For mobile devices */
-                document.execCommand("copy");
-                /* Alert the copied text */
-                confirm("Texto copiado " + copyText.value);
-            }
-
-            function myFunctionTelefone() {
-                var copyText = document.getElementById("telefone");
-                copyText.select();
-                copyText.setSelectionRange(0, 99999); /* For mobile devices */
-                document.execCommand("copy");
-                /* Alert the copied text */
-                confirm("Texto copiado " + copyText.value);
-            }
-            // -->
-        </SCRIPT>
     </jsp:body>
 </t:template>
