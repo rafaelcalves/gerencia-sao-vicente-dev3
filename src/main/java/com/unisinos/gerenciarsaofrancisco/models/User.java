@@ -40,6 +40,9 @@ public class User {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime dob;
 
+    @OneToOne(mappedBy = "app_user")
+    private Doctor doctor;
+
     public int getId() {
         return id;
     }
