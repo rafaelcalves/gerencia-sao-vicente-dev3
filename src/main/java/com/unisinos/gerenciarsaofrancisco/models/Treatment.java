@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity(name = "patient")
+@Entity(name = "treatment")
 @DynamicUpdate
 @Data
 public class Treatment {
@@ -23,6 +23,6 @@ public class Treatment {
     private LocalDate startDate;
     @Column(name = "end_date")
     private LocalDate endDate;
-    @OneToMany(mappedBy = "Treatment", targetEntity = MedicalPrescription.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "treatment", targetEntity = MedicalPrescription.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<MedicalPrescription> medicalPrescription;
 }
