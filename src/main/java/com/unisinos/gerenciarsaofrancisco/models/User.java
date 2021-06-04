@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 //Changed as heroku DB has a table named "user" as default
 @Entity(name = "app_user")
 @DynamicUpdate
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,8 +41,6 @@ public class User {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime dob;
 
-    @OneToOne(mappedBy = "app_user")
-    private Doctor doctor;
 
     public int getId() {
         return id;
@@ -91,11 +90,4 @@ public class User {
         this.role = role;
     }
 
-    public LocalDateTime getDob() {
-        return dob;
-    }
-
-    public void setDob(LocalDateTime dob) {
-        this.dob = dob;
-    }
 }

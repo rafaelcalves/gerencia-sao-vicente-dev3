@@ -4,22 +4,21 @@ import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "doctor")
 @DynamicUpdate
 @Data
-public class Doctor {
+@PrimaryKeyJoinColumn(name="ID")
+public class Doctor extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer id;
     @Column(length=15)
-    private String ctm;
-    @OneToOne
-    @JoinColumn(name="pk_app_user")
-    private User user;
-    @OneToOne(mappedBy = "doctor")
-    private MedicalPrescription medicalPrescription;
+    private String crm;
+    @OneToMany(mappedBy = "doctor", targetEntity = MedicalPrescription.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<MedicalPrescription> medicalPrescriptions;
 
 
 }

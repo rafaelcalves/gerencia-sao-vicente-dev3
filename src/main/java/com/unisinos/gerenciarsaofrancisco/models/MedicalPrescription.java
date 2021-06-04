@@ -15,8 +15,8 @@ public class MedicalPrescription {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer id;
-    @OneToOne
-    @JoinColumn(name="pk_doctor")
+    @ManyToOne
+    @JoinColumn(name="doctor_id")
     private Doctor doctor;
     @Column(length=512)
     private String description;
@@ -27,8 +27,8 @@ public class MedicalPrescription {
             inverseJoinColumns={@JoinColumn(name="medical_prescription_id",
                     referencedColumnName="id")})
     private Patient patient;
-    @OneToOne
-    @JoinColumn(name="pk_treatment")
+    @ManyToOne
+    @JoinColumn(name="tratament_id")
     private Treatment treatment;
 
 

@@ -22,6 +22,6 @@ public class Treatment {
     private LocalDate startDate;
     @Column(name = "end_date")
     private LocalDate endDate;
-    @OneToOne(mappedBy = "treatment")
+    @OneToMany(mappedBy = "doctor", targetEntity = MedicalPrescription.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private MedicalPrescription medicalPrescription;
 }

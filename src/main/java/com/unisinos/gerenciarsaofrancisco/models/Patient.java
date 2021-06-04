@@ -14,8 +14,8 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer id;
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="patient_medical_prescription",
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinTable(name="medical_prescription",
             joinColumns={@JoinColumn(name="patient_id",
                     referencedColumnName="id")},
             inverseJoinColumns={@JoinColumn(name="medical_prescription_id",

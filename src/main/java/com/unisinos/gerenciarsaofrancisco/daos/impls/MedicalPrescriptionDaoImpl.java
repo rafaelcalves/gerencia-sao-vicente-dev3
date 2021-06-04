@@ -2,7 +2,6 @@ package com.unisinos.gerenciarsaofrancisco.daos.impls;
 
 import com.unisinos.gerenciarsaofrancisco.daos.MedicalPrescriptionDao;
 import com.unisinos.gerenciarsaofrancisco.models.MedicalPrescription;
-import com.unisinos.gerenciarsaofrancisco.models.User;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
