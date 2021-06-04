@@ -21,7 +21,7 @@
                    Qual a forma de pagamento?</p>
                 <input type="button" class="btn-pix" value="Pix" onclick="document.location.href='payment/pix'">
 
-                <input type="button" class="btn-card" value="Cartão de crédito" onclick="document.location.href='payment/card'">
+                <input type="button" class="btn-card" value="Cartão de crédito" onclick="document.location.href='payment/credit'">
                 <div class="box-footer-payment">
                     <a href="/payment" class="box-footer-login-item">Informações adicionais</a>
                 </div>
