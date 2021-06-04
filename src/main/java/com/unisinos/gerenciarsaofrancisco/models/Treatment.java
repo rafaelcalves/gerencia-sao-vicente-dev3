@@ -6,6 +6,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity(name = "patient")
 @DynamicUpdate
@@ -22,6 +23,6 @@ public class Treatment {
     private LocalDate startDate;
     @Column(name = "end_date")
     private LocalDate endDate;
-    @OneToMany(mappedBy = "doctor", targetEntity = MedicalPrescription.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private MedicalPrescription medicalPrescription;
+    @OneToMany(mappedBy = "Treatment", targetEntity = MedicalPrescription.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<MedicalPrescription> medicalPrescription;
 }
