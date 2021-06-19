@@ -8,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 import javax.transaction.Transactional;
+import java.util.List;
+
 
 @Transactional
 @Component
@@ -16,7 +18,7 @@ public class MedicalPrescriptionDaoImpl  implements MedicalPrescriptionDao {
     private EntityManagerFactory entityManagerFactory;
 
     @Override
-    public void save(MedicalPrescription medicalPrescription) {
+    public void saveOrUpdate(MedicalPrescription medicalPrescription) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
 
@@ -39,4 +41,20 @@ public class MedicalPrescriptionDaoImpl  implements MedicalPrescriptionDao {
 
         return result;
     }
+
+    @Override
+    public List<MedicalPrescription> findByDoctorId(Integer doctorId) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        List<MedicalPrescription> result = entityManager.createQuery( "FROM medical_prescription WHERE doctor_id = :doctorId ORDER BY id DESC")
+              .setParameter("doctorId", doctorId)
+              .getResultList();
+
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
+        return result;
+    }
+
 }

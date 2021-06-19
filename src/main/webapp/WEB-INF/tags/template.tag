@@ -45,8 +45,10 @@
             <ul class="nav navbar-nav navbar-right">
                 <c:if test="${not empty logged_user}">
                     <li><a href="/">Página inicial</a></li>
-                    <li><a href="/">Relatórios</a></li>
-                    <li><a href="/">Tarefas</a></li>
+                    <c:if test="${logged_user.role eq 'EMPLOYEE'}">
+                        <li><a href="/employee/prescription">Receitas</a></li>
+                        <li><a href="/employee/prescription/view">Relatórios de Receitas</a></li>
+                    </c:if>
                     <li><a href="/">Meu perfil</a></li>
 
                     <li><a class="disabled"

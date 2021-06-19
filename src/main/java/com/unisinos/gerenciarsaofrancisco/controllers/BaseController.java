@@ -20,6 +20,15 @@ public class BaseController {
     private UserDataPopulator userDataPopulator;
 
     protected ModelAndView getView(Model model, String path){
+        UserData userData = getLoggedUser();
+
+        if (userData!=null) {
+            model.addAttribute("logged_user", userData);
+        }
+        return (new ModelAndView(path,model.asMap()));
+    }
+
+    protected UserData getLoggedUser(){
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         if (principal instanceof UserDetails) {
@@ -28,8 +37,8 @@ public class BaseController {
             User user = userService.findByEmail(username);
             UserData userData = new UserData();
             userDataPopulator.populate(user,userData);
-            model.addAttribute("logged_user", userData);
+            return userData;
         }
-        return (new ModelAndView(path,model.asMap()));
+        return null;
     }
 }
