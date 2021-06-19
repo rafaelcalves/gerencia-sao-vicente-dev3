@@ -31,7 +31,7 @@ public class Credit {
     private String cardNumber;
 
 
-    @Column(name = "expiration-date")
+    @Column(name = "expiration_date")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime dob;
 
