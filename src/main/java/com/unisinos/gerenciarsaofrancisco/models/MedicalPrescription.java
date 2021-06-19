@@ -14,23 +14,106 @@ import java.util.List;
 public class MedicalPrescription {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "ID")
     private Integer id;
     @ManyToOne
     @JoinColumn(name="doctor_id")
-    private Doctor doctor;
+    //private Doctor doctor;
+    private User doctor;
     @Column(length=512)
     private String description;
-    @OneToMany(cascade= CascadeType.ALL)
-    @JoinTable(name="patient_medical_prescription",
-            joinColumns={@JoinColumn(name="patient_id",
-                    referencedColumnName="id")},
-            inverseJoinColumns={@JoinColumn(name="medical_prescription_id",
-                    referencedColumnName="id")})
-    private List<Patient> patient;
+
+    @Column
+    private String patient;
+
+    @Column
+    private String medicine;
+    @Column
+    private String startDate;
+    @Column
+    private String endDate;
+
     @ManyToOne
     @JoinColumn(name="tratament_id")
     private Treatment treatment;
 
+    public Integer getId()
+    {
+        return id;
+    }
 
+    public void setId(Integer id)
+    {
+        this.id = id;
+    }
+
+    public User getDoctor()
+    {
+        return doctor;
+    }
+
+    public void setDoctor(User doctor)
+    {
+        this.doctor = doctor;
+    }
+
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public void setDescription(String description)
+    {
+        this.description = description;
+    }
+
+    public String getPatient()
+    {
+        return patient;
+    }
+
+    public void setPatient(String patient)
+    {
+        this.patient = patient;
+    }
+
+    public String getMedicine()
+    {
+        return medicine;
+    }
+
+    public void setMedicine(String medicine)
+    {
+        this.medicine = medicine;
+    }
+
+    public String getStartDate()
+    {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate)
+    {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate()
+    {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate)
+    {
+        this.endDate = endDate;
+    }
+
+    public Treatment getTreatment()
+    {
+        return treatment;
+    }
+
+    public void setTreatment(Treatment treatment)
+    {
+        this.treatment = treatment;
+    }
 }
