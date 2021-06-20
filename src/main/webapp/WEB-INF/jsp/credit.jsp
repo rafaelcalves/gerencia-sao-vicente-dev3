@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
@@ -21,45 +22,49 @@
                 <h1>Confirme sua doação</h1>
             </div>
             <div class="payment">
-                <form>
+                <form:form method="POST" action="/payment/credit/save" modelAttribute="credit-card" class="form">
                     <div class="form-group owner">
-                        <label for="owner">Nome impresso no cartão</label>
-                        <input type="text" class="form-control" id="owner">
+                        <label for="name">Nome impresso no cartão</label>
+                        <form:input name="name" type="text" autofocus="true" class="form-control"  path="name"/>
+                    </div>
+                    <div class="form-group valor">
+                        <label for="value">Valor</label>
+                        <form:input name="value" type="number" autofocus="true" class="form-control"  path="value"/>
                     </div>
                     <div class="form-group CVV">
                         <label for="cvv">CVV</label>
-                        <input type="text" class="form-control" id="cvv">
+                        <form:input name="cvv" type="text" autofocus="true" class="form-control"  path="cvv"/>
                     </div>
                     <div class="form-group" id="card-number-field">
-                        <label for="cardNumber">Número</label>
-                        <input type="text" class="form-control" id="cardNumber">
+                        <label for="number">Número</label>
+                        <form:input name="number" type="text" autofocus="true" class="form-control"  path="number"/>
                     </div>
                     <div class="form-group" id="expiration-date">
                         <label>Validade</label>
-                        <select>
-                            <option value="01">Janeiro</option>
-                            <option value="02">Fevereiro </option>
-                            <option value="03">Março</option>
-                            <option value="04">Abril</option>
-                            <option value="05">Maio</option>
-                            <option value="06">Junho</option>
-                            <option value="07">Julho</option>
-                            <option value="08">Agosto</option>
-                            <option value="09">Setembro</option>
-                            <option value="10">Outubro</option>
-                            <option value="11">Novembro</option>
-                            <option value="12">Dezembro</option>
-                        </select>
-                        <select>
-                            <option value="21"> 2021</option>
-                            <option value="22"> 2022</option>
-                            <option value="23"> 2023</option>
-                            <option value="24"> 2024</option>
-                            <option value="25"> 2025</option>
-                            <option value="26"> 2026</option>
-                            <option value="27"> 2027</option>
-                            <option value="28"> 2028</option>
-                        </select>
+                        <form:select name="expirationMonth" class="input--style-4"  path="expirationMonth">
+                            <form:option value="01">Janeiro</form:option>
+                            <form:option value="02">Fevereiro </form:option>
+                            <form:option value="03">Março</form:option>
+                            <form:option value="04">Abril</form:option>
+                            <form:option value="05">Maio</form:option>
+                            <form:option value="06">Junho</form:option>
+                            <form:option value="07">Julho</form:option>
+                            <form:option value="08">Agosto</form:option>
+                            <form:option value="09">Setembro</form:option>
+                            <form:option value="10">Outubro</form:option>
+                            <form:option value="11">Novembro</form:option>
+                            <form:option value="12">Dezembro</form:option>
+                        </form:select>
+                        <form:select name="expirationYear" class="input--style-4"  path="expirationYear">
+                            <form:option value="21"> 2021</form:option>
+                            <form:option value="22"> 2022</form:option>
+                            <form:option value="23"> 2023</form:option>
+                            <form:option value="24"> 2024</form:option>
+                            <form:option value="25"> 2025</form:option>
+                            <form:option value="26"> 2026</form:option>
+                            <form:option value="27"> 2027</form:option>
+                            <form:option value="28"> 2028</form:option>
+                        </form:select>
                     </div>
                     <div class="form-group" id="credit_cards">
                         <img src="/resources/img/visa.jpg" id="visa">
@@ -69,7 +74,7 @@
                     <div class="form-group" id="pay-now">
                         <button type="submit" class="btn btn-default" id="confirm-purchase">Efetuar doação</button>
                     </div>
-                </form>
+                </form:form>
             </div>
         </div>
 

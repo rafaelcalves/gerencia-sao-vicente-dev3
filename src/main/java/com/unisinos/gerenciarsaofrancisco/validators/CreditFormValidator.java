@@ -1,6 +1,6 @@
 package com.unisinos.gerenciarsaofrancisco.validators;
 
-import com.unisinos.gerenciarsaofrancisco.forms.CreditForm;
+import com.unisinos.gerenciarsaofrancisco.forms.CreditDonationForm;
 import com.unisinos.gerenciarsaofrancisco.service.CreditService;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -16,17 +16,17 @@ public class CreditFormValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return CreditForm.class.isAssignableFrom(aClass);
+        return CreditDonationForm.class.isAssignableFrom(aClass);
     }
 
     @Override
     public void validate(Object o, Errors errors) {
-        CreditForm credit = (CreditForm) o;
+        CreditDonationForm credit = (CreditDonationForm) o;
         validateEmpty(errors);
 
 
-        if(creditService.findByCard(credit.getCardNumber()) != null){
-            errors.rejectValue("CardNumber", "duplicated");
+        if(creditService.findByCard(credit.getNumber()) != null){
+            errors.rejectValue("cardNumber", "duplicated");
         }
     }
 

@@ -24,7 +24,7 @@ public class Credit {
 
     @Column(name = "cvv")
 	@NotEmpty
-    private int cvv;
+    private String cvv;
 
 	@Column(name = "cardNumber")
 	@NotEmpty
@@ -55,11 +55,11 @@ public class Credit {
         this.owner=owner;
     }
 
-    public int getCvv() {
+    public String getCvv() {
         return cvv;
     }
 
-    public void setCvv(int cvv) {
+    public void setCvv(String cvv) {
         this.cvv=cvv;
     }
 
@@ -73,9 +73,5 @@ public class Credit {
 
 	 public String getCreditcards() {
         return creditCards;
-    }
-	
-	public void setCreditCards(String cardNumber) {
-        this.creditCards=creditCards;
     }
 }
