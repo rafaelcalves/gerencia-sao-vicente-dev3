@@ -59,14 +59,14 @@
 
                     <li>
                         <a href="/payment"
-                           style="height: 40px; width: 120px; background-color: #8C0052; border-radius: 6px; border: 1px solid #8C0052; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: #ffffff !important; font-size: 16px; margin-left: 20px;">
+                           style="height: 40px; width: 80px; background-color: #8C0052; border-radius: 6px; border: 1px solid #8C0052; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: #ffffff !important; font-size: 16px; margin-left: 20px;">
                             Doar
                         </a>
                     </li>
 
                     <li>
                     <a href="/logout"
-                        style="height: 40px; width: 120px; background-color: #8C0052; border-radius: 6px; border: 1px solid #8C0052; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: #ffffff !important; font-size: 16px; margin-left: 20px;">
+                        style="height: 40px; background-color: #8C0052; border-radius: 6px; border: 1px solid #8C0052; box-sizing: border-box; display: flex; align-items: center; justify-content: center; color: #ffffff !important; font-size: 16px; margin-left: 20px;">
                       Sair
                     </a>
                     </li>

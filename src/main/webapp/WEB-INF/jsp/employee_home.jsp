@@ -15,6 +15,6 @@
     </jsp:attribute>
 
     <jsp:body>
-        <h2 class="hello-title">Hello ${name}!</h2>
+
     </jsp:body>
 </t:template>
