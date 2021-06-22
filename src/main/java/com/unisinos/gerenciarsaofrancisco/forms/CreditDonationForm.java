@@ -48,7 +48,7 @@ public class CreditDonationForm
         this.number = number;
     }
 
-    public void setCvv(int String) {
+    public void setCvv(String cvv) {
         this.cvv = cvv;
     }
 

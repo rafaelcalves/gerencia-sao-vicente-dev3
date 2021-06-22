@@ -4,6 +4,7 @@ import com.unisinos.gerenciarsaofrancisco.datas.UserData;
 import com.unisinos.gerenciarsaofrancisco.forms.MedicalPrescriptionForm;
 import com.unisinos.gerenciarsaofrancisco.models.MedicalPrescription;
 import com.unisinos.gerenciarsaofrancisco.service.MedicalPrescriptionService;
+import com.unisinos.gerenciarsaofrancisco.validators.PrescriptionFormValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,15 +25,22 @@ public class PrescriptionController extends BaseController{
     @Resource
     private MedicalPrescriptionService service;
 
-    @RequestMapping(value ={"/",""})
+    @Resource
+    private PrescriptionFormValidator prescriptionFormValidator;
+
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET}, value ={"/",""})
     public ModelAndView prescription(Model model) {
         model.addAttribute("prescription", new MedicalPrescriptionForm());
         return getView(model, "prescription");
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = {"/save"})
-    public ModelAndView save(@ModelAttribute("pescribe") MedicalPrescriptionForm medicalPrescriptionForm,
+    @RequestMapping(method = {RequestMethod.POST}, value = {"/save"})
+    public ModelAndView save(@ModelAttribute("prescription") MedicalPrescriptionForm medicalPrescriptionForm,
           BindingResult bindingResult, Model model, Errors errors){
+        prescriptionFormValidator.validate(medicalPrescriptionForm,bindingResult);
+        if(bindingResult.hasErrors()){
+            return getView(model,"prescription");
+        }
         service.saveFromForm(medicalPrescriptionForm);
         return getView(model,"redirect:/employee/prescription/view");
     }

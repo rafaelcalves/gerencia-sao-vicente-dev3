@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 public class PaymentController extends BaseController{
 
     @Resource
-    private Validator creValidator;
+    private Validator creditFormValidator;
 
     @Resource
     private CreditService creditService;
@@ -42,9 +42,13 @@ public class PaymentController extends BaseController{
         return getView(model, "credit");
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = {"credit/save"})
-    public ModelAndView create(@ModelAttribute("user") CreditDonationForm creditDonationForm,
+    @RequestMapping(method = RequestMethod.POST, value = {"/credit/save"})
+    public ModelAndView create(@ModelAttribute("credit-card") CreditDonationForm creditDonationForm,
           BindingResult bindingResult, Model model, Errors errors){
+        creditFormValidator.validate(creditDonationForm,bindingResult);
+        if(bindingResult.hasErrors()){
+            return getView(model,"credit");
+        }
         model.addAttribute("donation",creditDonationForm);
         return getView(model,"redirect:/payment/credit/donate");
     }

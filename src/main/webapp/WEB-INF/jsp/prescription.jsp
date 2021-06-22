@@ -34,11 +34,12 @@
                             <div class="input-group-icon">
                                 <form:select name="patientId" class="input--style-4"  path="patientId">
                                     <form:option value="">Selecione um paciente</form:option>
-                                    <form:option value="0">0 : John Doe</form:option>
-                                    <form:option value="1">1 : José da Silva</form:option>
-                                    <form:option value="2">2 : Maria José</form:option>
-                                    <form:option value="3">3 : Eduardo Paulo</form:option>
+                                    <form:option value="1">0 : John Doe</form:option>
+                                    <form:option value="2">1 : José da Silva</form:option>
+                                    <form:option value="3">2 : Maria José</form:option>
+                                    <form:option value="4">3 : Eduardo Paulo</form:option>
                                 </form:select>
+                                <form:errors path="patientId" cssClass="error" />
                             </div>
                         </div>
 
@@ -51,11 +52,12 @@
                                     <div class="input-group-icon">
                                         <form:select name="medicineId" class="input--style-4"  path="medicineId">
                                             <form:option value="">Selecione um Medicamento</form:option>
-                                            <form:option value="0">0 : Aspirina</form:option>
-                                            <form:option value="1">1 : Dipirona</form:option>
-                                            <form:option value="2">2 : Paracetamol</form:option>
-                                            <form:option value="3">3 : Diclofenaco</form:option>
+                                            <form:option value="1">0 : Aspirina</form:option>
+                                            <form:option value="2">1 : Dipirona</form:option>
+                                            <form:option value="3">2 : Paracetamol</form:option>
+                                            <form:option value="4">3 : Diclofenaco</form:option>
                                         </form:select>
+                                        <form:errors path="medicineId" cssClass="error" />
                                     </div>
                                 </div>
                                 <div class="input-group">
