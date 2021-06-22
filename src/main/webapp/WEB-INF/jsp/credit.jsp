@@ -26,18 +26,22 @@
                     <div class="form-group owner">
                         <label for="name">Nome impresso no cartão</label>
                         <form:input name="name" type="text" autofocus="true" class="form-control"  path="name"/>
+                        <form:errors path="name" cssClass="error" />
                     </div>
                     <div class="form-group valor">
                         <label for="value">Valor</label>
                         <form:input name="value" type="number" autofocus="true" class="form-control"  path="value"/>
+                        <form:errors path="value" cssClass="error" />
                     </div>
                     <div class="form-group CVV">
                         <label for="cvv">CVV</label>
                         <form:input name="cvv" type="text" autofocus="true" class="form-control"  path="cvv"/>
+                        <form:errors path="cvv" cssClass="error" />
                     </div>
                     <div class="form-group" id="card-number-field">
                         <label for="number">Número</label>
                         <form:input name="number" type="text" autofocus="true" class="form-control"  path="number"/>
+                        <form:errors path="number" cssClass="error" />
                     </div>
                     <div class="form-group" id="expiration-date">
                         <label>Validade</label>
@@ -55,6 +59,7 @@
                             <form:option value="11">Novembro</form:option>
                             <form:option value="12">Dezembro</form:option>
                         </form:select>
+                        <form:errors path="expirationMonth" cssClass="error" />
                         <form:select name="expirationYear" class="input--style-4"  path="expirationYear">
                             <form:option value="21"> 2021</form:option>
                             <form:option value="22"> 2022</form:option>
@@ -65,6 +70,7 @@
                             <form:option value="27"> 2027</form:option>
                             <form:option value="28"> 2028</form:option>
                         </form:select>
+                        <form:errors path="expirationYear" cssClass="error" />
                     </div>
                     <div class="form-group" id="credit_cards">
                         <img src="/resources/img/visa.jpg" id="visa">

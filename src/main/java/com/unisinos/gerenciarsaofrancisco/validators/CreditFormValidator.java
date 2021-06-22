@@ -21,19 +21,19 @@ public class CreditFormValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
-        CreditDonationForm credit = (CreditDonationForm) o;
+        CreditDonationForm form = (CreditDonationForm)o;
         validateEmpty(errors);
-
-
-        if(creditService.findByCard(credit.getNumber()) != null){
-            errors.rejectValue("cardNumber", "duplicated");
+        if(((CreditDonationForm) o).getValue() <= 0){
+            errors.rejectValue("value", "invalid");
         }
     }
 
     private void validateEmpty(Errors errors) {
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "card Number", "field.required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "owner", "field.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "field.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "number", "field.required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "cvv", "field.required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "credit_cards", "field.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "expirationMonth", "field.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "expirationYear", "field.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "value", "field.required");
     }
 }
